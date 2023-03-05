@@ -67,6 +67,7 @@ flutter:
     - assets/images/displayImage1.png
     - assets/images/displayImage2.png
     - assets/images/displayImage3.png
+    - assets/images/basket image.png
   #   - images/a_dot_ham.jpeg
 
   # An image asset can refer to one or more resolution-specific "variants", see
