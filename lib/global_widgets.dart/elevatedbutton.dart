@@ -1,17 +1,17 @@
 import 'package:flutter/material.dart';
 
-Widget button(
-    {required Function callback,
+Widget button(BuildContext context,
+    {required Function() callback,
     required String text,
     required bool customize,
-    required Color bgcolor,
-    required Color txtColor}) {
+    required Color? bgcolor,
+    required Color? txtColor}) {
   return ElevatedButton(
-    onPressed: () => callback,
+    onPressed: callback,
     style: ButtonStyle(
       backgroundColor: customize
           ? MaterialStateProperty.resolveWith((states) => bgcolor)
-          : null,
+          : Theme.of(context).elevatedButtonTheme.style!.backgroundColor,
     ),
     child: Text(
       text,

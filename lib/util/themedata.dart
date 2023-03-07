@@ -40,8 +40,8 @@ ElevatedButtonThemeData appElevatedButtonTheme = ElevatedButtonThemeData(
       (states) => const TextStyle(
         color: Colors.white,
         fontFamily: 'Hind',
-        fontSize: 20,
-        fontWeight: FontWeight.bold,
+        fontSize: 15,
+        fontWeight: FontWeight.normal,
       ),
     ),
     backgroundColor: MaterialStateProperty.resolveWith(

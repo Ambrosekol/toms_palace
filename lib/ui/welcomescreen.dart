@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:toms_palace/global_widgets.dart/elevatedbutton.dart';
+import 'package:toms_palace/ui/welcomescreen.dart';
+import 'package:toms_palace/ui/welcomescreren_2.dart';
 
 class WelcomeScreen extends StatelessWidget {
   const WelcomeScreen({super.key});
@@ -7,7 +9,7 @@ class WelcomeScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: SafeArea(
+      body: Center(
         child: Column(
           mainAxisAlignment: MainAxisAlignment.spaceAround,
           crossAxisAlignment: CrossAxisAlignment.start,
@@ -62,90 +64,79 @@ class WelcomeScreen extends StatelessWidget {
                 ),
               ],
             ),
-            Column(
-              mainAxisAlignment: MainAxisAlignment.start,
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                Padding(
-                  padding: const EdgeInsets.only(left: 15.0),
-                  child: Text(
-                    'Category',
-                    style: Theme.of(context)
-                        .textTheme
-                        .bodyLarge!
-                        .apply(color: Colors.black),
-                    textAlign: TextAlign.left,
-                  ),
-                ),
-                Padding(
-                  padding: const EdgeInsets.all(15.0),
-                  child: Text(
-                    'At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium At vero eos et',
-                    style: Theme.of(context)
-                        .textTheme
-                        .bodyLarge!
-                        .copyWith(fontSize: 14),
-                    textAlign: TextAlign.left,
-                  ),
-                ),
-              ],
-            ),
+            // Column(
+            //   mainAxisAlignment: MainAxisAlignment.start,
+            //   crossAxisAlignment: CrossAxisAlignment.start,
+            //   children: [
+            //     Padding(
+            //       padding: const EdgeInsets.only(left: 15.0),
+            //       child: Text(
+            //         'Category',
+            //         style: Theme.of(context)
+            //             .textTheme
+            //             .bodyLarge!
+            //             .apply(color: Colors.black),
+            //         textAlign: TextAlign.left,
+            //       ),
+            //     ),
+            //     Padding(
+            //       padding: const EdgeInsets.all(15.0),
+            //       child: Text(
+            //         'At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium At vero eos et',
+            //         style: Theme.of(context)
+            //             .textTheme
+            //             .bodyLarge!
+            //             .copyWith(fontSize: 14),
+            //         textAlign: TextAlign.left,
+            //       ),
+            //     ),
+            //   ],
+            // ),
             Center(
-              child: Container(
-                // color: Colors.black38,
-                width: MediaQuery.of(context).size.width * 0.9,
-                height: MediaQuery.of(context).size.height * 0.4,
-                // padding: const EdgeInsets.all(8.0),
-                child: Stack(
-                  alignment: AlignmentDirectional.center,
-                  children: [
-                    Container(
-                      height: 200,
-                      width: 200.0,
-                      decoration: BoxDecoration(
-                          color: Color(0xFFC3A995),
-                          borderRadius: BorderRadius.circular(13.15)),
-                    ),
-                    Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                      children: [
-                        Align(
-                          alignment: Alignment.topLeft,
-                          child: Container(
-                            margin: const EdgeInsets.only(top: 15.0),
-                            child: foodDisplay(
-                                261.7,
-                                154.57,
-                                'assets/images/displayImage1.png',
-                                'Jollof Rice'),
+              child: Stack(
+                alignment: AlignmentDirectional.center,
+                children: [
+                  Container(
+                    height: 150,
+                    width: 150.0,
+                    decoration: BoxDecoration(
+                        color: Color(0xFFC3A995),
+                        borderRadius: BorderRadius.circular(13.15)),
+                  ),
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                    children: [
+                      Align(
+                        alignment: Alignment.topLeft,
+                        child: Container(
+                          margin: const EdgeInsets.only(top: 15.0),
+                          child: foodDisplay(250.7, 154.57,
+                              'assets/images/displayImage1.png', 'Jollof Rice'),
+                        ),
+                      ),
+                      Column(
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                        children: [
+                          foodDisplay(150.7, 150.7,
+                              'assets/images/displayImage2.png', 'Egusi Soup'),
+                          const SizedBox(
+                            height: 10.0,
                           ),
-                        ),
-                        Column(
-                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                          children: [
-                            foodDisplay(
-                                150.7,
-                                150.7,
-                                'assets/images/displayImage2.png',
-                                'Egusi Soup'),
-                            const SizedBox(
-                              height: 10.0,
-                            ),
-                            foodDisplay(150.7, 150.7,
-                                'assets/images/displayImage3.png', 'Okro Soup')
-                          ],
-                        ),
-                      ],
-                    ),
-                  ],
-                ),
+                          foodDisplay(150.7, 150.7,
+                              'assets/images/displayImage3.png', 'Okro Soup')
+                        ],
+                      ),
+                    ],
+                  ),
+                ],
               ),
             ),
-            SizedBox(height: 50.0),
+            SizedBox(height: 20.0),
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceAround,
               children: [
                 button(
+                  context,
                   callback: () => null,
                   text: 'Skip',
                   customize: true,
@@ -153,7 +144,11 @@ class WelcomeScreen extends StatelessWidget {
                   txtColor: Color(0xFF736557),
                 ),
                 button(
-                  callback: () => null,
+                  context,
+                  callback: () => Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                          builder: (context) => WelcomeScreen2())),
                   text: 'Next',
                   customize: false,
                   bgcolor: Color.fromARGB(255, 255, 255, 255),
