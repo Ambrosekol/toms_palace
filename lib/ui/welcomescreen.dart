@@ -11,7 +11,7 @@ class WelcomeScreen extends StatelessWidget {
     return Scaffold(
       body: Center(
         child: Column(
-          mainAxisAlignment: MainAxisAlignment.spaceAround,
+          mainAxisAlignment: MainAxisAlignment.center,
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             Center(
@@ -28,6 +28,7 @@ class WelcomeScreen extends StatelessWidget {
                 ],
               ),
             ),
+            SizedBox(height: 30.0),
             Stack(
               alignment: AlignmentDirectional.centerStart,
               children: [
@@ -131,7 +132,7 @@ class WelcomeScreen extends StatelessWidget {
                 ],
               ),
             ),
-            SizedBox(height: 20.0),
+            SizedBox(height: 50.0),
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceAround,
               children: [

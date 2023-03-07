@@ -18,6 +18,7 @@ ThemeData appThemeData = ThemeData(
   ),
   textTheme: appTextTheme,
   elevatedButtonTheme: appElevatedButtonTheme,
+  inputDecorationTheme: customizedDecoration(),
 );
 
 TextTheme appTextTheme = const TextTheme().copyWith(
@@ -53,3 +54,7 @@ ElevatedButtonThemeData appElevatedButtonTheme = ElevatedButtonThemeData(
     elevation: MaterialStateProperty.resolveWith((states) => 15.0),
   ),
 );
+
+InputDecorationTheme customizedDecoration() {
+  return InputDecorationTheme();
+}

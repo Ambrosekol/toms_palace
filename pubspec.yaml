@@ -72,6 +72,9 @@ flutter:
     - assets/images/spag.png
     - assets/images/white rice.png
     - assets/images/deliverypack.png
+    - assets/images/happy_people.png
+    - assets/images/letter.png
+    - assets/images/location_marker.png
   #   - images/a_dot_ham.jpeg
 
   # An image asset can refer to one or more resolution-specific "variants", see
