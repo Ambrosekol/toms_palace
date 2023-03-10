@@ -33,6 +33,11 @@ TextTheme appTextTheme = const TextTheme().copyWith(
     fontFamily: "Ubuntu",
     fontSize: 14.0,
   ),
+  bodySmall: const TextStyle(
+    color: Color(0xFF736557),
+    fontFamily: "Ubuntu-regular",
+    fontSize: 14.0,
+  ),
 );
 
 ElevatedButtonThemeData appElevatedButtonTheme = ElevatedButtonThemeData(
@@ -56,5 +61,26 @@ ElevatedButtonThemeData appElevatedButtonTheme = ElevatedButtonThemeData(
 );
 
 InputDecorationTheme customizedDecoration() {
-  return InputDecorationTheme();
+  return InputDecorationTheme(
+    contentPadding: const EdgeInsets.all(8.0),
+    border: OutlineInputBorder(
+      borderRadius: BorderRadius.circular(10),
+      borderSide: const BorderSide(
+        color: Color(0xFF736557),
+        width: 0.7,
+      ),
+    ),
+    labelStyle: const TextStyle(
+      color: Color(0xFF736557),
+      fontFamily: "Ubuntu",
+      fontSize: 12.0,
+      fontWeight: FontWeight.w100,
+    ),
+    hintStyle: const TextStyle(
+      color: Color(0xFF736557),
+      fontFamily: "Ubuntu-regular",
+      fontSize: 14.0,
+      fontWeight: FontWeight.w400,
+    ),
+  );
 }

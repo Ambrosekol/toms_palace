@@ -94,6 +94,10 @@ flutter:
         - asset: fonts/Ubuntu-Bold.ttf
         # - asset: fonts/Schyler-Italic.ttf
           # style: italic
+    - family: Ubuntu-regular
+      fonts:
+        - asset: fonts/Ubuntu-Regular.ttf
+        ##
     - family: Hind
       fonts:
         - asset: fonts/Hind-Regular.ttf
