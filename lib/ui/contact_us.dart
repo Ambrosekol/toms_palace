@@ -19,12 +19,12 @@ class _ContactUsPageState extends State<ContactUsPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: CustomizedAppBar(),
+      appBar: CustomizedAppBar(centerTitle: true),
       drawer: CustomizedDrawer(),
       body: SingleChildScrollView(
         child: Padding(
           padding: const EdgeInsets.all(8.0),
-          child: Container(
+          child: SizedBox(
             height: MediaQuery.of(context).size.height / 1.5,
             child: Column(
               mainAxisAlignment: MainAxisAlignment.spaceAround,
