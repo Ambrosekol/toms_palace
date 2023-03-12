@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:toms_palace/global_widgets.dart/elevatedbutton.dart';
-import 'package:toms_palace/ui/welcomescreen.dart';
 import 'package:toms_palace/ui/welcomescreren_2.dart';
 
 class WelcomeScreen extends StatelessWidget {

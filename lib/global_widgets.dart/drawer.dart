@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:toms_palace/ui/signup.dart';
 
 class CustomizedDrawer extends StatelessWidget {
   CustomizedDrawer({super.key});
@@ -15,7 +16,13 @@ class CustomizedDrawer extends StatelessWidget {
           SizedBox(height: 40),
           drawerItem(context, "Sign In", () => null),
           SizedBox(height: 15),
-          drawerItem(context, "Join", () => null),
+          drawerItem(
+              context,
+              "Join",
+              () => Navigator.pushAndRemoveUntil(
+                  context,
+                  MaterialPageRoute(builder: (context) => const SignUp()),
+                  (route) => false)),
           SizedBox(height: 15),
           drawerItem(context, "Menus", () => null),
           SizedBox(height: 15),
