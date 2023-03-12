@@ -6,7 +6,7 @@ class ReviewStars {
   List<Widget> stars = [];
   Icon goodIcon = const Icon(
     Icons.star,
-    color: Colors.yellow,
+    color: Color(0xFF736557),
     size: 10.0,
   );
   Icon otherIcon = const Icon(

@@ -12,14 +12,30 @@ class ContactUsPage extends StatefulWidget {
 }
 
 class _ContactUsPageState extends State<ContactUsPage> {
-  final TextEditingController _nameController = TextEditingController();
-  final TextEditingController _emailController = TextEditingController();
-  final TextEditingController _messageController = TextEditingController();
+  late TextEditingController _nameController;
+  late TextEditingController _emailController;
+  late TextEditingController _messageController;
+
+  @override
+  void initState() {
+    _nameController = TextEditingController();
+    _emailController = TextEditingController();
+    _messageController = TextEditingController();
+    super.initState();
+  }
+
+  @override
+  void dispose() {
+    _nameController.dispose();
+    _emailController.dispose();
+    _messageController.dispose();
+    super.dispose();
+  }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: CustomizedAppBar(centerTitle: true),
+      appBar: CustomizedAppBar(centerTitle: false),
       drawer: CustomizedDrawer(),
       body: SingleChildScrollView(
         child: Padding(
@@ -32,11 +48,12 @@ class _ContactUsPageState extends State<ContactUsPage> {
               children: [
                 Text(
                   'Get In Touch',
-                  style: Theme.of(context).textTheme.bodySmall,
+                  style: Theme.of(context).textTheme.bodyMedium,
                   textAlign: TextAlign.left,
                 ),
                 // const SizedBox(height: 10.0),
                 TextField(
+                  keyboardType: TextInputType.name,
                   controller: _nameController,
                   decoration: const InputDecoration(
                     hintText: 'Full Name',
@@ -50,20 +67,21 @@ class _ContactUsPageState extends State<ContactUsPage> {
                   ),
                 ),
                 TextFormField(
+                  keyboardType: TextInputType.multiline,
                   maxLines: 10,
                   controller: _messageController,
                   decoration: InputDecoration(
                     hintText: 'Message',
                     constraints: BoxConstraints(
                       // minWidth: 150,
-                      minHeight: MediaQuery.of(context).size.height / 3.5,
+                      minHeight: MediaQuery.of(context).size.height / 4,
                     ),
                   ),
                 ),
                 Center(
                   child: button(
                     context,
-                    callback: () => null,
+                    callback: () => submitfunction(),
                     text: 'Submit',
                     customize: false,
                     bgcolor: null,
@@ -77,4 +95,6 @@ class _ContactUsPageState extends State<ContactUsPage> {
       ),
     );
   }
+
+  submitfunction() {}
 }

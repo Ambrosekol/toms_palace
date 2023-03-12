@@ -52,7 +52,7 @@ Widget welcomeCard(BuildContext context,
               shape: CircleBorder(),
               child: Image.asset(
                 'assets/images/basket image.png',
-                width: 10,
+                width: 20,
               ),
             ),
           )

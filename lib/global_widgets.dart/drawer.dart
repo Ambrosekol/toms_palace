@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:toms_palace/ui/contact_us.dart';
+import 'package:toms_palace/ui/signin.dart';
 import 'package:toms_palace/ui/signup.dart';
 
 class CustomizedDrawer extends StatelessWidget {
@@ -13,9 +15,18 @@ class CustomizedDrawer extends StatelessWidget {
       child: ListView(
         primary: true,
         children: [
-          SizedBox(height: 40),
-          drawerItem(context, "Sign In", () => null),
-          SizedBox(height: 15),
+          const SizedBox(height: 40),
+          drawerItem(
+            context,
+            "Sign In",
+            () => Navigator.pushReplacement(
+              context,
+              MaterialPageRoute(
+                builder: (context) => const SignIn(),
+              ),
+            ),
+          ),
+          const SizedBox(height: 15),
           drawerItem(
               context,
               "Join",
@@ -23,12 +34,21 @@ class CustomizedDrawer extends StatelessWidget {
                   context,
                   MaterialPageRoute(builder: (context) => const SignUp()),
                   (route) => false)),
-          SizedBox(height: 15),
+          const SizedBox(height: 15),
           drawerItem(context, "Menus", () => null),
-          SizedBox(height: 15),
+          const SizedBox(height: 15),
           drawerItem(context, "Map", () => null),
-          SizedBox(height: 15),
-          drawerItem(context, "Contact Us", () => null),
+          const SizedBox(height: 15),
+          drawerItem(
+            context,
+            "Contact Us",
+            () => Navigator.pushReplacement(
+              context,
+              MaterialPageRoute(
+                builder: (context) => ContactUsPage(),
+              ),
+            ),
+          ),
         ],
       ),
     );
