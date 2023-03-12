@@ -15,9 +15,10 @@ class _SignUpState extends State<SignUp> {
   TextEditingController passwordConfirmation = TextEditingController();
   TextEditingController addressController = TextEditingController();
   TextEditingController phoneController = TextEditingController();
-  TextEditingController genderController = TextEditingController();
+  String gender = 'Gender';
   //
   bool obscurePwd = false;
+
   //
   void viewPassword() {
     if (obscurePwd) {
@@ -98,7 +99,7 @@ class _SignUpState extends State<SignUp> {
                         //   style: Theme.of(context).textTheme.bodySmall,
                         // ),
                         InkWell(
-                          onTap: () => null,
+                          onTap: () => genderSelector(),
                           child: Container(
                             height: 50.0,
                             width: size.width,
@@ -111,7 +112,7 @@ class _SignUpState extends State<SignUp> {
                               child: Align(
                                 alignment: Alignment.centerLeft,
                                 child: Text(
-                                  'Gender',
+                                  gender,
                                   style: Theme.of(context).textTheme.bodyMedium,
                                 ),
                               ),
@@ -150,5 +151,73 @@ class _SignUpState extends State<SignUp> {
         ),
       ),
     );
+  }
+
+  Future genderSelector() {
+    return showDialog(
+        context: context,
+        builder: (context) {
+          return AlertDialog(
+            backgroundColor: Colors.white,
+            elevation: 20.0,
+            shape: RoundedRectangleBorder(
+              borderRadius: BorderRadius.circular(10.0),
+            ),
+            content: SizedBox(
+              height: MediaQuery.of(context).size.height / 6,
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.spaceAround,
+                children: [
+                  GestureDetector(
+                    onTap: (() {
+                      setState(() {
+                        gender = 'Male';
+                      });
+                      Navigator.pop(context);
+                    }),
+                    child: Container(
+                      alignment: Alignment.center,
+                      color: Theme.of(context).colorScheme.surface,
+                      height: 50.0,
+                      margin: const EdgeInsets.symmetric(horizontal: 10.0),
+                      padding: const EdgeInsets.all(8.0),
+                      width: MediaQuery.of(context).size.width,
+                      child: Text(
+                        'Male',
+                        style: Theme.of(context)
+                            .textTheme
+                            .bodyMedium!
+                            .copyWith(fontSize: 15.0),
+                      ),
+                    ),
+                  ),
+                  GestureDetector(
+                    onTap: (() {
+                      setState(() {
+                        gender = 'Female';
+                      });
+                      Navigator.pop(context);
+                    }),
+                    child: Container(
+                      alignment: Alignment.center,
+                      color: Theme.of(context).colorScheme.surface,
+                      height: 50.0,
+                      margin: const EdgeInsets.symmetric(horizontal: 10.0),
+                      padding: const EdgeInsets.all(8.0),
+                      width: MediaQuery.of(context).size.width,
+                      child: Text(
+                        'Female',
+                        style: Theme.of(context)
+                            .textTheme
+                            .bodyMedium!
+                            .copyWith(fontSize: 15.0),
+                      ),
+                    ),
+                  ),
+                ],
+              ),
+            ),
+          );
+        });
   }
 }
