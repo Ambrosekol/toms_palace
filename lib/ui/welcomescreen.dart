@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:toms_palace/global_widgets.dart/elevatedbutton.dart';
+import 'package:toms_palace/ui/signin.dart';
 import 'package:toms_palace/ui/welcomescreren_2.dart';
 
 class WelcomeScreen extends StatelessWidget {
@@ -27,7 +28,7 @@ class WelcomeScreen extends StatelessWidget {
                 ],
               ),
             ),
-            SizedBox(height: 30.0),
+            const SizedBox(height: 30.0),
             Stack(
               alignment: AlignmentDirectional.centerStart,
               children: [
@@ -131,28 +132,33 @@ class WelcomeScreen extends StatelessWidget {
                 ],
               ),
             ),
-            SizedBox(height: 50.0),
+            const SizedBox(height: 50.0),
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceAround,
               children: [
                 button(
                   context,
-                  callback: () => null,
+                  callback: () => Navigator.pushReplacement(
+                    context,
+                    MaterialPageRoute(
+                      builder: (context) => const SignIn(),
+                    ),
+                  ),
                   text: 'Skip',
                   customize: true,
-                  bgcolor: Color.fromARGB(255, 255, 255, 255),
-                  txtColor: Color(0xFF736557),
+                  bgcolor: const Color.fromARGB(255, 255, 255, 255),
+                  txtColor: const Color(0xFF736557),
                 ),
                 button(
                   context,
                   callback: () => Navigator.push(
                       context,
                       MaterialPageRoute(
-                          builder: (context) => WelcomeScreen2())),
+                          builder: (context) => const WelcomeScreen2())),
                   text: 'Next',
                   customize: false,
-                  bgcolor: Color.fromARGB(255, 255, 255, 255),
-                  txtColor: Color(0xFF736557),
+                  bgcolor: const Color.fromARGB(255, 255, 255, 255),
+                  txtColor: const Color(0xFF736557),
                 ),
               ],
             ),

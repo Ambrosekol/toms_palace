@@ -3,6 +3,7 @@ import 'package:toms_palace/global_widgets.dart/elevatedbutton.dart';
 import 'package:toms_palace/global_widgets.dart/welcome_card.dart';
 import 'package:toms_palace/global_widgets.dart/welcome_roadmap.dart';
 import 'package:toms_palace/ui/contact_us.dart';
+import 'package:toms_palace/ui/signin.dart';
 
 class WelcomeScreen2 extends StatelessWidget {
   const WelcomeScreen2({super.key});
@@ -94,7 +95,12 @@ class WelcomeScreen2 extends StatelessWidget {
                   children: [
                     button(
                       context,
-                      callback: () => print('Skip'),
+                      callback: () => Navigator.pushAndRemoveUntil(
+                          context,
+                          MaterialPageRoute(
+                            builder: (context) => const SignIn(),
+                          ),
+                          (route) => false),
                       text: 'Skip',
                       customize: true,
                       bgcolor: Colors.white,
