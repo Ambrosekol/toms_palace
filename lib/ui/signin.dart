@@ -126,6 +126,17 @@ class _SignInState extends State<SignIn> {
                           ),
                         ),
                         const SizedBox(height: 20.0),
+                        InkWell(
+                          onTap: () => null, //Forgot Password Function
+                          child: Text(
+                            'Forgot Password?',
+                            style: Theme.of(context)
+                                .textTheme
+                                .bodySmall!
+                                .copyWith(fontWeight: FontWeight.bold),
+                          ),
+                        ),
+                        const SizedBox(height: 15.0),
                         Row(
                           mainAxisAlignment: MainAxisAlignment.center,
                           children: [

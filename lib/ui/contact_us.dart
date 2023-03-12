@@ -35,7 +35,7 @@ class _ContactUsPageState extends State<ContactUsPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: CustomizedAppBar(centerTitle: false),
+      appBar: CustomizedAppBar(centerTitle: true),
       drawer: CustomizedDrawer(),
       body: SingleChildScrollView(
         child: Padding(

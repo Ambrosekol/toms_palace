@@ -18,26 +18,32 @@ class CustomizedDrawer extends StatelessWidget {
           const SizedBox(height: 40),
           drawerItem(
             context,
-            "Sign In",
-            () => Navigator.pushReplacement(
+            "Home",
+            () => null,
+          ),
+          const SizedBox(height: 15),
+          drawerItem(
+            context,
+            "Sign in",
+            () => Navigator.push(
               context,
               MaterialPageRoute(
-                builder: (context) => const SignIn(),
+                builder: (context) => SignIn(),
               ),
             ),
           ),
           const SizedBox(height: 15),
           drawerItem(
-              context,
-              "Join",
-              () => Navigator.pushAndRemoveUntil(
-                  context,
-                  MaterialPageRoute(builder: (context) => const SignUp()),
-                  (route) => false)),
+            context,
+            "Map",
+            () => null,
+          ),
           const SizedBox(height: 15),
-          drawerItem(context, "Menus", () => null),
-          const SizedBox(height: 15),
-          drawerItem(context, "Map", () => null),
+          drawerItem(
+            context,
+            "Track Order",
+            () => null,
+          ),
           const SizedBox(height: 15),
           drawerItem(
             context,
