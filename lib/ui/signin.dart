@@ -62,7 +62,7 @@ class _SignInState extends State<SignIn> {
             alignment: Alignment.center,
             children: [
               Opacity(
-                opacity: 0.2,
+                opacity: 0.1,
                 child: Image.asset(
                   imageLocation(imageName: 'Food welcome image.png'),
                   width: 300.0,

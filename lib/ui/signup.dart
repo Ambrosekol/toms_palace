@@ -18,7 +18,7 @@ class _SignUpState extends State<SignUp> {
   late TextEditingController phoneController;
   String gender = 'Gender';
   //
-  bool obscurePwd = false;
+  bool obscurePwd = true;
 
   //
   void viewPassword() {
@@ -71,7 +71,7 @@ class _SignUpState extends State<SignUp> {
             alignment: Alignment.center,
             children: [
               Opacity(
-                opacity: 0.2,
+                opacity: 0.1,
                 child: Image.asset(
                   imageLocation(imageName: 'Food welcome image.png'),
                   width: 300.0,
@@ -134,7 +134,7 @@ class _SignUpState extends State<SignUp> {
                             height: 50.0,
                             width: size.width,
                             decoration: BoxDecoration(
-                              border: Border.all(width: 1.0),
+                              border: Border.all(width: 0.4),
                               borderRadius: BorderRadius.circular(10.0),
                             ),
                             child: Padding(
@@ -143,7 +143,12 @@ class _SignUpState extends State<SignUp> {
                                 alignment: Alignment.centerLeft,
                                 child: Text(
                                   gender,
-                                  style: Theme.of(context).textTheme.bodyMedium,
+                                  style: Theme.of(context)
+                                      .textTheme
+                                      .bodySmall!
+                                      .copyWith(
+                                          fontSize: 13,
+                                          fontWeight: FontWeight.bold),
                                 ),
                               ),
                             ),
