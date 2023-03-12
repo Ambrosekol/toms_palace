@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:toms_palace/ui/signin.dart';
 import 'package:toms_palace/util/imagedirectory.dart';
 
 class SignUp extends StatefulWidget {
@@ -9,12 +10,12 @@ class SignUp extends StatefulWidget {
 }
 
 class _SignUpState extends State<SignUp> {
-  TextEditingController nameController = TextEditingController();
-  TextEditingController emailController = TextEditingController();
-  TextEditingController passwordController = TextEditingController();
-  TextEditingController passwordConfirmation = TextEditingController();
-  TextEditingController addressController = TextEditingController();
-  TextEditingController phoneController = TextEditingController();
+  late TextEditingController nameController;
+  late TextEditingController emailController;
+  late TextEditingController passwordController;
+  late TextEditingController passwordConfirmation;
+  late TextEditingController addressController;
+  late TextEditingController phoneController;
   String gender = 'Gender';
   //
   bool obscurePwd = false;
@@ -32,61 +33,90 @@ class _SignUpState extends State<SignUp> {
     }
   }
 
+  submitData() {} //submit userInfo
+
   //
+  @override
+  void initState() {
+    nameController = TextEditingController();
+    emailController = TextEditingController();
+    passwordController = TextEditingController();
+    passwordConfirmation = TextEditingController();
+    addressController = TextEditingController();
+    phoneController = TextEditingController();
+    super.initState();
+  }
+
+//
+  @override
+  void dispose() {
+    nameController.dispose();
+    emailController.dispose();
+    passwordController.dispose();
+    passwordConfirmation.dispose();
+    addressController.dispose();
+    phoneController.dispose();
+    super.dispose();
+  }
+
   @override
   Widget build(BuildContext context) {
     Size size = MediaQuery.of(context).size;
     return Scaffold(
-      body: Container(
-        height: size.height,
-        width: size.width,
-        child: Stack(
-          alignment: Alignment.center,
-          children: [
-            Opacity(
-              opacity: 0.2,
-              child: Image.asset(
-                imageLocation(imageName: 'Food welcome image.png'),
-                width: 300.0,
-              ),
-            ),
-            Column(
-              mainAxisAlignment: MainAxisAlignment.start,
-              children: [
-                Text(
-                  'Sign Up',
-                  style: Theme.of(context)
-                      .textTheme
-                      .bodyLarge!
-                      .copyWith(fontSize: 25.0),
+      body: SingleChildScrollView(
+        child: Container(
+          height: size.height,
+          width: size.width,
+          child: Stack(
+            alignment: Alignment.center,
+            children: [
+              Opacity(
+                opacity: 0.2,
+                child: Image.asset(
+                  imageLocation(imageName: 'Food welcome image.png'),
+                  width: 300.0,
                 ),
-                SingleChildScrollView(
-                  child: Container(
-                    margin: EdgeInsets.only(top: 70.0),
+              ),
+              Column(
+                mainAxisAlignment: MainAxisAlignment.end,
+                children: [
+                  Text(
+                    'Sign Up',
+                    style: Theme.of(context)
+                        .textTheme
+                        .bodyLarge!
+                        .copyWith(fontSize: 25.0),
+                  ),
+                  Container(
+                    margin: const EdgeInsets.only(top: 10.0),
                     width: size.width,
-                    height: size.height / 2,
+                    height: size.height / 1.5,
                     padding: const EdgeInsets.all(10.0),
                     child: Column(
                       mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                       children: [
                         TextField(
+                          keyboardType: TextInputType.name,
                           controller: nameController,
                           decoration:
                               const InputDecoration(labelText: 'Full name'),
                           style: Theme.of(context).textTheme.bodySmall,
                         ),
                         TextField(
+                          keyboardType: TextInputType.emailAddress,
                           controller: emailController,
                           decoration: const InputDecoration(labelText: 'Email'),
                           style: Theme.of(context).textTheme.bodySmall,
                         ),
                         TextField(
+                          keyboardType: TextInputType.streetAddress,
                           controller: addressController,
                           decoration:
                               const InputDecoration(labelText: 'Address'),
                           style: Theme.of(context).textTheme.bodySmall,
                         ),
                         TextField(
+                          keyboardType: TextInputType.phone,
                           controller: phoneController,
                           decoration:
                               const InputDecoration(labelText: 'Phone Number'),
@@ -126,7 +156,7 @@ class _SignUpState extends State<SignUp> {
                             labelText: 'Password',
                             suffixIcon: IconButton(
                               onPressed: () => viewPassword(),
-                              icon: const Icon(Icons.password),
+                              icon: const Icon(Icons.remove_red_eye),
                             ),
                           ),
                           obscureText: obscurePwd,
@@ -144,10 +174,60 @@ class _SignUpState extends State<SignUp> {
                       ],
                     ),
                   ),
-                ),
-              ],
-            ),
-          ],
+                  ElevatedButton.icon(
+                    onPressed: submitData,
+                    icon: const Icon(Icons.food_bank),
+                    label: Text(
+                      'Sign Up',
+                      style: Theme.of(context)
+                          .textTheme
+                          .bodyMedium!
+                          .copyWith(color: Colors.white),
+                    ),
+                  ),
+                  const SizedBox(height: 20.0),
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      Text(
+                        'Already have an account?',
+                        style: Theme.of(context).textTheme.bodySmall,
+                      ),
+                      const SizedBox(width: 8.0),
+                      InkWell(
+                        onTap: () => Navigator.pushAndRemoveUntil(
+                            context,
+                            MaterialPageRoute(
+                              builder: (context) => const SignIn(),
+                            ),
+                            (route) => false),
+                        child: Text(
+                          'Sign in',
+                          style: Theme.of(context)
+                              .textTheme
+                              .bodySmall!
+                              .copyWith(fontWeight: FontWeight.bold),
+                        ),
+                      )
+                    ],
+                  ),
+                  const SizedBox(height: 20.0),
+                  Padding(
+                    padding: const EdgeInsets.symmetric(vertical: 8.0),
+                    child: Column(
+                      // mainAxisAlignment: MainAxisAlignment.center,
+                      children: const [
+                        Divider(
+                          thickness: 5.0,
+                        ),
+                        Text('2023 Tom\'s Place All Rights Reserved')
+                      ],
+                    ),
+                  )
+                ],
+              ),
+            ],
+          ),
         ),
       ),
     );
