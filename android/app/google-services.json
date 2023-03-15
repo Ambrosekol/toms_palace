@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "458155795750",
+    "project_id": "toms-palace",
+    "storage_bucket": "toms-palace.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:458155795750:android:de116bf6eef49697ca8de7",
+        "android_client_info": {
+          "package_name": "com.cloudedcreatives.tomspalace"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "458155795750-2pqt382l4lrnjbdhfhopt1t75e1i1tlb.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDhLBYGKExdw6UPpS9l-v5Gv91OCq0shFo"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "458155795750-2pqt382l4lrnjbdhfhopt1t75e1i1tlb.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

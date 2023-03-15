@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:toms_palace/util/firebaseInstance.dart';
 import 'package:toms_palace/util/imagedirectory.dart';
 
 class CustomizedAppBar extends StatefulWidget with PreferredSizeWidget {
@@ -162,7 +163,9 @@ class _CustomizedAppBarState extends State<CustomizedAppBar> {
                       icon: Icons.history),
                   dialogItem(
                       textItem: 'Track Order',
-                      callback: () {},
+                      callback: () {
+                        // print('object is a goo ');
+                      },
                       icon: Icons.map),
                   const Divider(
                     height: 2.0,
@@ -170,7 +173,10 @@ class _CustomizedAppBarState extends State<CustomizedAppBar> {
                   ),
                   dialogItem(
                       textItem: 'Sign Out',
-                      callback: () {},
+                      callback: () async {
+                        await authInstance.signOut();
+                        Navigator.popUntil(context, ModalRoute.withName('/'));
+                      },
                       icon: Icons.logout),
                 ],
               ),
@@ -183,8 +189,8 @@ class _CustomizedAppBarState extends State<CustomizedAppBar> {
       {required String textItem,
       required Function() callback,
       required IconData icon}) {
-    return GestureDetector(
-      onTap: () => callback,
+    return InkWell(
+      onTap: callback,
       child: Container(
         alignment: Alignment.center,
         color: Theme.of(context).colorScheme.surface,

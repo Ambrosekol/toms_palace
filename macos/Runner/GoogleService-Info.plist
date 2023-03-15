@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>CLIENT_ID</key>
+	<string>458155795750-taa1lf0seblvik3mh1p0atqobsl3q702.apps.googleusercontent.com</string>
+	<key>REVERSED_CLIENT_ID</key>
+	<string>com.googleusercontent.apps.458155795750-taa1lf0seblvik3mh1p0atqobsl3q702</string>
+	<key>API_KEY</key>
+	<string>AIzaSyB2NbDAajrbpC63rs0etyyBvflaHE-MaII</string>
+	<key>GCM_SENDER_ID</key>
+	<string>458155795750</string>
+	<key>PLIST_VERSION</key>
+	<string>1</string>
+	<key>BUNDLE_ID</key>
+	<string>com.example.tomsPalace</string>
+	<key>PROJECT_ID</key>
+	<string>toms-palace</string>
+	<key>STORAGE_BUCKET</key>
+	<string>toms-palace.appspot.com</string>
+	<key>IS_ADS_ENABLED</key>
+	<false></false>
+	<key>IS_ANALYTICS_ENABLED</key>
+	<false></false>
+	<key>IS_APPINVITE_ENABLED</key>
+	<true></true>
+	<key>IS_GCM_ENABLED</key>
+	<true></true>
+	<key>IS_SIGNIN_ENABLED</key>
+	<true></true>
+	<key>GOOGLE_APP_ID</key>
+	<string>1:458155795750:ios:669ad888d603c6d3ca8de7</string>
+</dict>
+</plist>

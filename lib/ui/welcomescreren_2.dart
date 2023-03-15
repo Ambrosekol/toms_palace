@@ -91,27 +91,29 @@ class WelcomeScreen2 extends StatelessWidget {
                 ),
                 const SizedBox(height: 10.0),
                 Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceAround,
+                  mainAxisAlignment: MainAxisAlignment.center,
                   children: [
-                    button(
-                      context,
-                      callback: () => Navigator.pushAndRemoveUntil(
-                          context,
-                          MaterialPageRoute(
-                            builder: (context) => const SignIn(),
-                          ),
-                          (route) => false),
-                      text: 'Skip',
-                      customize: true,
-                      bgcolor: Colors.white,
-                      txtColor: Theme.of(context).primaryColor,
-                    ),
+                    // button(
+                    //   context,
+                    //   callback: () => Navigator.pushAndRemoveUntil(
+                    //       context,
+                    //       MaterialPageRoute(
+                    //         builder: (context) => const SignIn(),
+                    //       ),
+                    //       (route) => false),
+                    //   text: 'Skip',
+                    //   customize: true,
+                    //   bgcolor: Colors.white,
+                    //   txtColor: Theme.of(context).primaryColor,
+                    // ),
                     button(context,
-                        callback: () => Navigator.pushReplacement(context,
-                                MaterialPageRoute(builder: (context) {
-                              return ContactUsPage();
-                            })),
-                        text: 'Next',
+                        callback: () => Navigator.pushAndRemoveUntil(
+                            context,
+                            MaterialPageRoute(
+                              builder: (context) => const SignIn(),
+                            ),
+                            ModalRoute.withName('/')),
+                        text: 'Sign in',
                         customize: false,
                         bgcolor: null,
                         txtColor: null),

@@ -1,6 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:toms_palace/global_widgets.dart/erroralert.dart';
+import 'package:toms_palace/ui/contact_us.dart';
 import 'package:toms_palace/ui/signup.dart';
-
+import 'package:firebase_auth/firebase_auth.dart';
+import '../util/firebaseInstance.dart';
 import '../util/imagedirectory.dart';
 
 class SignIn extends StatefulWidget {
@@ -12,6 +15,7 @@ class SignIn extends StatefulWidget {
 
 class _SignInState extends State<SignIn> {
   late TextEditingController emailController;
+  late TextEditingController resetemailController;
   late TextEditingController passwordController;
 
   //
@@ -30,12 +34,35 @@ class _SignInState extends State<SignIn> {
     }
   }
 
-  submitData() {} //submit userInfo
+  pushpage() {
+    Navigator.pushReplacement(
+      context,
+      MaterialPageRoute(builder: (context) => ContactUsPage()),
+    );
+  }
+
+  submitData() async {
+    try {
+      await authInstance.signInWithEmailAndPassword(
+          email: emailController.text.trim(),
+          password: passwordController.text.trim());
+      pushpage();
+    } on FirebaseAuthException catch (e) {
+      // print(e.toString());
+      alertdialog_forAuth(e.code, context);
+    }
+  } //submit userInfo
+
+  resetpassword() {
+    // authInstance.sendPasswordResetEmail(
+    //     email: resetemailController.text.trim());
+  }
 
   //
   @override
   void initState() {
     emailController = TextEditingController();
+    resetemailController = TextEditingController();
     passwordController = TextEditingController();
 
     super.initState();
@@ -127,7 +154,8 @@ class _SignInState extends State<SignIn> {
                         ),
                         const SizedBox(height: 20.0),
                         InkWell(
-                          onTap: () => null, //Forgot Password Function
+                          onTap: () =>
+                              forgotPassword(), //Forgot Password Function
                           child: Text(
                             'Forgot Password?',
                             style: Theme.of(context)
@@ -185,5 +213,50 @@ class _SignInState extends State<SignIn> {
         ),
       ),
     );
+  }
+
+  forgotPassword() {
+    showDialog(
+        context: context,
+        builder: (context) {
+          return AlertDialog(
+            content: Container(
+              decoration:
+                  BoxDecoration(borderRadius: BorderRadius.circular(30.0)),
+              width: MediaQuery.of(context).size.width / 1.5,
+              height: MediaQuery.of(context).size.height / 5,
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.spaceAround,
+                children: [
+                  Text(
+                    'Reset Your Password',
+                    style: Theme.of(context).textTheme.bodyMedium,
+                  ),
+                  // SizedBox()
+                  TextField(
+                    controller: resetemailController,
+                    decoration: const InputDecoration(labelText: 'Email'),
+                    style: Theme.of(context).textTheme.bodySmall,
+                  ),
+                  ElevatedButton.icon(
+                    style: ButtonStyle(
+                        minimumSize: MaterialStateProperty.resolveWith(
+                            (states) => Size(
+                                MediaQuery.of(context).size.width - 10, 30))),
+                    onPressed: resetpassword(),
+                    icon: const Icon(Icons.email),
+                    label: Text(
+                      'Reset Password',
+                      style: Theme.of(context)
+                          .textTheme
+                          .bodyMedium!
+                          .copyWith(color: Colors.white),
+                    ),
+                  ),
+                ],
+              ),
+            ),
+          );
+        });
   }
 }
