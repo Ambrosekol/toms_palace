@@ -53,9 +53,14 @@ class _SignInState extends State<SignIn> {
     }
   } //submit userInfo
 
-  resetpassword() {
-    // authInstance.sendPasswordResetEmail(
-    //     email: resetemailController.text.trim());
+  resetpassword() async {
+    try {
+      await authInstance.sendPasswordResetEmail(
+          email: resetemailController.text.trim());
+    } on FirebaseAuthException catch (e) {
+      // print(e.toString());
+      alertdialog_forAuth(e.code, context);
+    }
   }
 
   //
@@ -73,6 +78,7 @@ class _SignInState extends State<SignIn> {
   void dispose() {
     emailController.dispose();
     passwordController.dispose();
+    resetemailController.dispose();
 
     super.dispose();
   }
@@ -243,7 +249,7 @@ class _SignInState extends State<SignIn> {
                         minimumSize: MaterialStateProperty.resolveWith(
                             (states) => Size(
                                 MediaQuery.of(context).size.width - 10, 30))),
-                    onPressed: resetpassword(),
+                    onPressed: resetpassword,
                     icon: const Icon(Icons.email),
                     label: Text(
                       'Reset Password',
