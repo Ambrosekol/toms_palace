@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-Future alertdialog_forAuth(BuildContext context, bool otherAlert,
+Future globalAlertDialog(BuildContext context, bool otherAlert,
     {String? alertMessage, IconData? alertIcon, String? firebaseErrorCode}) {
   Size size = MediaQuery.of(context).size;
   String? errMessage() {

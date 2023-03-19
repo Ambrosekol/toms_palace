@@ -12,7 +12,7 @@ Widget welcomeCard(BuildContext context,
   return Padding(
     padding: const EdgeInsets.all(8.0),
     child: Material(
-      color: Color(0xFFFFF3E5),
+      color: const Color(0xFFFFF3E5),
       borderRadius: BorderRadius.circular(10.0),
       shadowColor: Colors.black,
       elevation: 5.0,
@@ -48,8 +48,8 @@ Widget welcomeCard(BuildContext context,
           Padding(
             padding: const EdgeInsets.all(8.0),
             child: Material(
-              color: Color(0xFF736557),
-              shape: CircleBorder(),
+              color: const Color(0xFF736557),
+              shape: const CircleBorder(),
               child: Image.asset(
                 'assets/images/basket image.png',
                 width: 20,

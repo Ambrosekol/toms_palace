@@ -7,7 +7,7 @@ Widget threeRoadMapProcess(BuildContext context,
     required String title2,
     required String imageName3,
     required String title3}) {
-  return Container(
+  return SizedBox(
     height: 80,
     child: Row(
       mainAxisAlignment: MainAxisAlignment.center,
@@ -20,12 +20,12 @@ Widget threeRoadMapProcess(BuildContext context,
               title1,
               style: Theme.of(context).textTheme.bodyText2,
             ),
-            SizedBox(height: 5.0),
+            const SizedBox(height: 5.0),
             Material(
                 // borderRadius: BorderRadius.circular(20.0),
                 elevation: 4.0,
                 color: Theme.of(context).primaryColor,
-                shape: CircleBorder(),
+                shape: const CircleBorder(),
                 child: Center(
                   child: Image.asset(
                     'assets/images/$imageName1',
@@ -48,12 +48,12 @@ Widget threeRoadMapProcess(BuildContext context,
               title2,
               style: Theme.of(context).textTheme.bodyText2,
             ),
-            SizedBox(height: 5.0),
+            const SizedBox(height: 5.0),
             Material(
                 // borderRadius: BorderRadius.circular(20.0),
                 elevation: 4.0,
                 color: Theme.of(context).primaryColor,
-                shape: CircleBorder(),
+                shape: const CircleBorder(),
                 child: Center(
                   child: Image.asset(
                     'assets/images/$imageName2',
@@ -77,12 +77,12 @@ Widget threeRoadMapProcess(BuildContext context,
               title3,
               style: Theme.of(context).textTheme.bodyText2,
             ),
-            SizedBox(height: 5.0),
+            const SizedBox(height: 5.0),
             Material(
                 // borderRadius: BorderRadius.circular(20.0),
                 elevation: 4.0,
                 color: Theme.of(context).primaryColor,
-                shape: CircleBorder(),
+                shape: const CircleBorder(),
                 child: Center(
                   child: Image.asset(
                     'assets/images/$imageName3',

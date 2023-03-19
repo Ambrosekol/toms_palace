@@ -1,8 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:toms_palace/ui/contact_us.dart';
-import 'package:toms_palace/ui/signin.dart';
 import 'package:toms_palace/ui/welcomescreen.dart';
-import 'package:toms_palace/util/firebaseInstance.dart';
+import 'package:toms_palace/util/firebaseinstance.dart';
 import 'package:toms_palace/util/themedata.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'firebase_options.dart';
@@ -26,7 +25,7 @@ class MyApp extends StatelessWidget {
       initialRoute: '/',
       debugShowCheckedModeBanner: false,
       routes: {
-        '/': (context) => AuthConfirm(),
+        '/': (context) => const AuthConfirm(),
       },
       title: 'Flutter Demo',
       theme: appThemeData,
@@ -65,9 +64,9 @@ class _AuthConfirmState extends State<AuthConfirm> {
         stream: authInstance.authStateChanges(),
         builder: (context, snapshot) {
           if (snapshot.data == null) {
-            return WelcomeScreen();
+            return const WelcomeScreen();
           } else {
-            return ContactUsPage();
+            return const ContactUsPage();
           }
         });
   }

@@ -3,7 +3,7 @@ import 'package:toms_palace/global_widgets.dart/erroralert.dart';
 import 'package:toms_palace/ui/contact_us.dart';
 import 'package:toms_palace/ui/signup.dart';
 import 'package:firebase_auth/firebase_auth.dart';
-import '../util/firebaseInstance.dart';
+import '../util/firebaseinstance.dart';
 import '../util/imagedirectory.dart';
 
 class SignIn extends StatefulWidget {
@@ -37,12 +37,12 @@ class _SignInState extends State<SignIn> {
   pushpage() {
     Navigator.pushReplacement(
       context,
-      MaterialPageRoute(builder: (context) => ContactUsPage()),
+      MaterialPageRoute(builder: (context) => const ContactUsPage()),
     );
   }
 
   confirmreset() {
-    alertdialog_forAuth(context, true,
+    globalAlertDialog(context, true,
         alertIcon: Icons.check,
         alertMessage: 'Confirmation Email sent, check your Email');
   }
@@ -55,7 +55,7 @@ class _SignInState extends State<SignIn> {
       pushpage();
     } on FirebaseAuthException catch (e) {
       // print(e.toString());
-      alertdialog_forAuth(context, false, firebaseErrorCode: e.code);
+      globalAlertDialog(context, false, firebaseErrorCode: e.code);
     }
   } //submit userInfo
 
@@ -67,7 +67,7 @@ class _SignInState extends State<SignIn> {
       confirmreset();
     } on FirebaseAuthException catch (e) {
       // print(e.toString());
-      alertdialog_forAuth(context, false, firebaseErrorCode: e.code);
+      globalAlertDialog(context, false, firebaseErrorCode: e.code);
     }
   }
 

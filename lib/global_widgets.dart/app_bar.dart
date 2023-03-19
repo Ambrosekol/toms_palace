@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
-import 'package:toms_palace/util/firebaseInstance.dart';
+import 'package:toms_palace/util/firebaseinstance.dart';
 import 'package:toms_palace/util/imagedirectory.dart';
 
 class CustomizedAppBar extends StatefulWidget with PreferredSizeWidget {
   CustomizedAppBar({super.key, required this.centerTitle});
-  bool centerTitle;
+  final bool centerTitle;
   @override
   Size get preferredSize => const Size.fromHeight(50.0);
   @override
@@ -13,6 +13,11 @@ class CustomizedAppBar extends StatefulWidget with PreferredSizeWidget {
 
 class _CustomizedAppBarState extends State<CustomizedAppBar> {
   String usernmae = 'Adeyemi';
+
+  baseLinePage() {
+    Navigator.popUntil(context, ModalRoute.withName('/'));
+  }
+
   @override
   Widget build(BuildContext context) {
     Size size = MediaQuery.of(context).size;
@@ -64,7 +69,7 @@ class _CustomizedAppBarState extends State<CustomizedAppBar> {
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
                     IconButton(
-                      onPressed: () => null,
+                      onPressed: () {}, // SEARCH ICON FUNCTION
                       icon: Icon(
                         Icons.search,
                         color: Theme.of(context).primaryColor,
@@ -89,7 +94,7 @@ class _CustomizedAppBarState extends State<CustomizedAppBar> {
                     ),
                     const SizedBox(width: 10.0),
                     InkWell(
-                      onTap: () => null,
+                      onTap: () {}, // USER'S CART
                       child: Material(
                         shape: const CircleBorder(),
                         color: Theme.of(context).primaryColor,
@@ -175,7 +180,7 @@ class _CustomizedAppBarState extends State<CustomizedAppBar> {
                       textItem: 'Sign Out',
                       callback: () async {
                         await authInstance.signOut();
-                        Navigator.popUntil(context, ModalRoute.withName('/'));
+                        baseLinePage();
                       },
                       icon: Icons.logout),
                 ],

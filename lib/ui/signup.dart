@@ -2,7 +2,7 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:toms_palace/global_widgets.dart/erroralert.dart';
 import 'package:toms_palace/ui/signin.dart';
-import 'package:toms_palace/util/firebaseInstance.dart';
+import 'package:toms_palace/util/firebaseinstance.dart';
 import 'package:toms_palace/util/imagedirectory.dart';
 
 class SignUp extends StatefulWidget {
@@ -49,7 +49,7 @@ class _SignUpState extends State<SignUp> {
        */
 
     } on FirebaseAuthException catch (e) {
-      alertdialog_forAuth(context, false, firebaseErrorCode: e.code);
+      globalAlertDialog(context, false, firebaseErrorCode: e.code);
     }
   } //submit userInfo
 

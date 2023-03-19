@@ -1,10 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:toms_palace/ui/contact_us.dart';
 import 'package:toms_palace/ui/signin.dart';
-import 'package:toms_palace/ui/signup.dart';
 
 class CustomizedDrawer extends StatelessWidget {
-  CustomizedDrawer({super.key});
+  const CustomizedDrawer({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -28,7 +27,7 @@ class CustomizedDrawer extends StatelessWidget {
             () => Navigator.push(
               context,
               MaterialPageRoute(
-                builder: (context) => SignIn(),
+                builder: (context) => const SignIn(),
               ),
             ),
           ),
@@ -51,7 +50,7 @@ class CustomizedDrawer extends StatelessWidget {
             () => Navigator.pushReplacement(
               context,
               MaterialPageRoute(
-                builder: (context) => ContactUsPage(),
+                builder: (context) => const ContactUsPage(),
               ),
             ),
           ),

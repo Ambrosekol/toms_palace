@@ -5,7 +5,7 @@ import '../global_widgets.dart/app_bar.dart';
 import '../global_widgets.dart/drawer.dart';
 
 class ContactUsPage extends StatefulWidget {
-  ContactUsPage({super.key});
+  const ContactUsPage({super.key});
 
   @override
   State<ContactUsPage> createState() => _ContactUsPageState();
@@ -36,7 +36,7 @@ class _ContactUsPageState extends State<ContactUsPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: CustomizedAppBar(centerTitle: true),
-      drawer: CustomizedDrawer(),
+      drawer: const CustomizedDrawer(),
       body: SingleChildScrollView(
         child: Padding(
           padding: const EdgeInsets.all(8.0),

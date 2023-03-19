@@ -22,7 +22,7 @@ class WelcomeScreen extends StatelessWidget {
                     'The Best Resturant in your Home',
                     style: Theme.of(context).textTheme.bodyLarge,
                   ),
-                  SizedBox(height: 10.0),
+                  const SizedBox(height: 10.0),
                   Text('Delicious recipes made using high-quality ingredients',
                       style: Theme.of(context).textTheme.bodyMedium),
                 ],
@@ -32,16 +32,14 @@ class WelcomeScreen extends StatelessWidget {
             Stack(
               alignment: AlignmentDirectional.centerStart,
               children: [
-                Container(
-                  child: Row(
-                    mainAxisAlignment: MainAxisAlignment.end,
-                    children: [
-                      Image.asset(
-                        'assets/images/Food welcome image.png',
-                        width: 160,
-                      )
-                    ],
-                  ),
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.end,
+                  children: [
+                    Image.asset(
+                      'assets/images/Food welcome image.png',
+                      width: 160,
+                    )
+                  ],
                 ),
                 SizedBox(
                   height: 150,
@@ -101,7 +99,7 @@ class WelcomeScreen extends StatelessWidget {
                     height: 150,
                     width: 150.0,
                     decoration: BoxDecoration(
-                        color: Color(0xFFC3A995),
+                        color: const Color(0xFFC3A995),
                         borderRadius: BorderRadius.circular(13.15)),
                   ),
                   Row(
