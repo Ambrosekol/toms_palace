@@ -41,6 +41,12 @@ class _SignInState extends State<SignIn> {
     );
   }
 
+  confirmreset() {
+    alertdialog_forAuth(context, true,
+        alertIcon: Icons.check,
+        alertMessage: 'Confirmation Email sent, check your Email');
+  }
+
   submitData() async {
     try {
       await authInstance.signInWithEmailAndPassword(
@@ -49,7 +55,7 @@ class _SignInState extends State<SignIn> {
       pushpage();
     } on FirebaseAuthException catch (e) {
       // print(e.toString());
-      alertdialog_forAuth(e.code, context);
+      alertdialog_forAuth(context, false, firebaseErrorCode: e.code);
     }
   } //submit userInfo
 
@@ -57,9 +63,11 @@ class _SignInState extends State<SignIn> {
     try {
       await authInstance.sendPasswordResetEmail(
           email: resetemailController.text.trim());
+      Navigator.pop;
+      confirmreset();
     } on FirebaseAuthException catch (e) {
       // print(e.toString());
-      alertdialog_forAuth(e.code, context);
+      alertdialog_forAuth(context, false, firebaseErrorCode: e.code);
     }
   }
 
