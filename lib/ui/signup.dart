@@ -1,5 +1,8 @@
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
+import 'package:toms_palace/global_widgets.dart/erroralert.dart';
 import 'package:toms_palace/ui/signin.dart';
+import 'package:toms_palace/util/firebaseInstance.dart';
 import 'package:toms_palace/util/imagedirectory.dart';
 
 class SignUp extends StatefulWidget {
@@ -33,7 +36,22 @@ class _SignUpState extends State<SignUp> {
     }
   }
 
-  submitData() {} //submit userInfo
+  submitData() async {
+    try {
+      await authInstance.createUserWithEmailAndPassword(
+        email: emailController.text.trim(),
+        password: passwordController.text.trim(),
+      );
+
+      /* 
+        HERE IS THE PLACE TO INITIALIZE FIREBASE STORAGE
+        TO STORE USER INFO
+       */
+
+    } on FirebaseAuthException catch (e) {
+      alertdialog_forAuth(context, false, firebaseErrorCode: e.code);
+    }
+  } //submit userInfo
 
   //
   @override
@@ -64,7 +82,7 @@ class _SignUpState extends State<SignUp> {
     Size size = MediaQuery.of(context).size;
     return Scaffold(
       body: SingleChildScrollView(
-        child: Container(
+        child: SizedBox(
           height: size.height,
           width: size.width,
           child: Stack(
@@ -253,7 +271,7 @@ class _SignUpState extends State<SignUp> {
               child: Column(
                 mainAxisAlignment: MainAxisAlignment.spaceAround,
                 children: [
-                  GestureDetector(
+                  InkWell(
                     onTap: (() {
                       setState(() {
                         gender = 'Male';
@@ -276,7 +294,7 @@ class _SignUpState extends State<SignUp> {
                       ),
                     ),
                   ),
-                  GestureDetector(
+                  InkWell(
                     onTap: (() {
                       setState(() {
                         gender = 'Female';
