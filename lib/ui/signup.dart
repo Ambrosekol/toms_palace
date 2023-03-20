@@ -1,6 +1,8 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:toms_palace/global_widgets.dart/erroralert.dart';
+import 'package:toms_palace/models/user.dart';
+import 'package:toms_palace/ui/contact_us.dart';
 import 'package:toms_palace/ui/signin.dart';
 import 'package:toms_palace/util/firebaseinstance.dart';
 import 'package:toms_palace/util/imagedirectory.dart';
@@ -19,6 +21,7 @@ class _SignUpState extends State<SignUp> {
   late TextEditingController passwordConfirmation;
   late TextEditingController addressController;
   late TextEditingController phoneController;
+
   String gender = 'Gender';
   //
   bool obscurePwd = true;
@@ -38,10 +41,29 @@ class _SignUpState extends State<SignUp> {
 
   submitData() async {
     try {
-      await authInstance.createUserWithEmailAndPassword(
+      await authInstance
+          .createUserWithEmailAndPassword(
         email: emailController.text.trim(),
         password: passwordController.text.trim(),
-      );
+      )
+          .then((value) {
+        AppUser appUser = AppUser.inituser(
+            nameController.text,
+            emailController.text,
+            gender,
+            addressController.text,
+            phoneController.text,
+            passwordController.text,
+            value.user!.uid);
+        db.collection('Users').doc(value.user!.uid).set(appUser.tojson());
+        Navigator.pop(context);
+        Navigator.push(
+          context,
+          MaterialPageRoute(
+            builder: (context) => const ContactUsPage(),
+          ),
+        );
+      });
 
       /* 
         HERE IS THE PLACE TO INITIALIZE FIREBASE STORAGE

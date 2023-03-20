@@ -29,6 +29,13 @@
             {
               "client_id": "458155795750-2pqt382l4lrnjbdhfhopt1t75e1i1tlb.apps.googleusercontent.com",
               "client_type": 3
+            },
+            {
+              "client_id": "458155795750-taa1lf0seblvik3mh1p0atqobsl3q702.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.example.tomsPalace"
+              }
             }
           ]
         }
