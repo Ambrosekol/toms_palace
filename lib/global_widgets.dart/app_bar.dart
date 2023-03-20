@@ -15,7 +15,9 @@ class _CustomizedAppBarState extends State<CustomizedAppBar> {
   String usernmae = 'Adeyemi';
 
   baseLinePage() {
-    Navigator.popUntil(context, ModalRoute.withName('/'));
+    Navigator.popUntil(context, (route) => false);
+    Navigator.pushNamed(context, '/');
+    // (context, ModalRoute.withName('/'));
   }
 
   @override
