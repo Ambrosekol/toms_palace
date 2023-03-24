@@ -40,38 +40,43 @@ class _SignUpState extends State<SignUp> {
   }
 
   submitData() async {
-    try {
-      await authInstance
-          .createUserWithEmailAndPassword(
-        email: emailController.text.trim(),
-        password: passwordController.text.trim(),
-      )
-          .then((value) {
-        AppUser appUser = AppUser.inituser(
-            nameController.text,
-            emailController.text,
-            gender,
-            addressController.text,
-            phoneController.text,
-            passwordController.text,
-            value.user!.uid);
-        db.collection('Users').doc(value.user!.uid).set(appUser.tojson());
-        Navigator.pop(context);
-        Navigator.push(
-          context,
-          MaterialPageRoute(
-            builder: (context) => const ContactUsPage(),
-          ),
-        );
-      });
+    if (passwordController == passwordConfirmation) {
+      try {
+        await authInstance
+            .createUserWithEmailAndPassword(
+          email: emailController.text.trim(),
+          password: passwordController.text.trim(),
+        )
+            .then((value) {
+          AppUser appUser = AppUser.inituser(
+              nameController.text,
+              emailController.text,
+              gender,
+              addressController.text,
+              phoneController.text,
+              passwordController.text,
+              value.user!.uid);
+          db.collection('Users').doc(value.user!.uid).set(appUser.tojson());
+          Navigator.pop(context);
+          Navigator.push(
+            context,
+            MaterialPageRoute(
+              builder: (context) => const ContactUsPage(),
+            ),
+          );
+        });
 
-      /* 
-        HERE IS THE PLACE TO INITIALIZE FIREBASE STORAGE
-        TO STORE USER INFO
-       */
+        /* 
+      HERE IS THE PLACE TO INITIALIZE FIREBASE STORAGE
+      TO STORE USER INFO
+     */
 
-    } on FirebaseAuthException catch (e) {
-      globalAlertDialog(context, false, firebaseErrorCode: e.code);
+      } on FirebaseAuthException catch (e) {
+        globalAlertDialog(context, false, firebaseErrorCode: e.code);
+      }
+    } else {
+      globalAlertDialog(context, true,
+          alertMessage: "Password dont match", alertIcon: Icons.error);
     }
   } //submit userInfo
 
