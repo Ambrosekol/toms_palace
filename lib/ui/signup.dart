@@ -42,7 +42,7 @@ class _SignUpState extends State<SignUp> {
   }
 
   submitData() async {
-    if (passwordController == passwordConfirmation) {
+    if (passwordController.text == passwordConfirmation.text) {
       try {
         await authInstance
             .createUserWithEmailAndPassword(
