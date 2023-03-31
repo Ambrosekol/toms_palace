@@ -20,6 +20,7 @@ class _SignUpState extends State<SignUp> {
   late TextEditingController passwordController;
   late TextEditingController passwordConfirmation;
   late TextEditingController addressController;
+  late TextEditingController cityController;
   late TextEditingController phoneController;
 
   String gender = 'Gender';
@@ -49,13 +50,16 @@ class _SignUpState extends State<SignUp> {
         )
             .then((value) {
           AppUser appUser = AppUser.inituser(
-              nameController.text,
-              emailController.text,
-              gender,
-              addressController.text,
-              phoneController.text,
-              passwordController.text,
-              value.user!.uid);
+            nameController.text,
+            emailController.text,
+            gender,
+            addressController.text,
+            phoneController.text,
+            passwordController.text,
+            value.user!.uid,
+            <CartItems>[],
+            cityController.text,
+          );
           db.collection('Users').doc(value.user!.uid).set(appUser.tojson());
           Navigator.pop(context);
           Navigator.push(
@@ -88,6 +92,7 @@ class _SignUpState extends State<SignUp> {
     passwordController = TextEditingController();
     passwordConfirmation = TextEditingController();
     addressController = TextEditingController();
+    cityController = TextEditingController();
     phoneController = TextEditingController();
     super.initState();
   }
@@ -100,6 +105,7 @@ class _SignUpState extends State<SignUp> {
     passwordController.dispose();
     passwordConfirmation.dispose();
     addressController.dispose();
+    cityController.dispose();
     phoneController.dispose();
     super.dispose();
   }
@@ -158,6 +164,12 @@ class _SignUpState extends State<SignUp> {
                           controller: addressController,
                           decoration:
                               const InputDecoration(labelText: 'Address'),
+                          style: Theme.of(context).textTheme.bodySmall,
+                        ),
+                        TextField(
+                          keyboardType: TextInputType.streetAddress,
+                          controller: cityController,
+                          decoration: const InputDecoration(labelText: 'City'),
                           style: Theme.of(context).textTheme.bodySmall,
                         ),
                         TextField(
