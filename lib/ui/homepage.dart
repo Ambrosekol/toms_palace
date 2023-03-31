@@ -1,6 +1,8 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:loading_indicator/loading_indicator.dart';
+import 'package:toms_palace/global_widgets.dart/app_bar.dart';
+import 'package:toms_palace/global_widgets.dart/drawer.dart';
 import 'package:toms_palace/models/menu.dart';
 import 'package:toms_palace/models/user.dart';
 import 'package:toms_palace/util/firebaseinstance.dart';
@@ -33,7 +35,10 @@ class _HomescreenState extends State<Homescreen> {
       stream: userdata,
       builder: (context, snapshot) {
         if (snapshot.hasData) {
-          return Scaffold();
+          return Scaffold(
+            appBar: CustomizedAppBar(centerTitle: true),
+            drawer: const CustomizedDrawer(),
+          );
         } else {
           return Scaffold(
             body: Center(
