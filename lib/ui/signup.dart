@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:toms_palace/global_widgets.dart/erroralert.dart';
 import 'package:toms_palace/models/user.dart';
 import 'package:toms_palace/ui/contact_us.dart';
+import 'package:toms_palace/ui/homepage.dart';
 import 'package:toms_palace/ui/signin.dart';
 import 'package:toms_palace/util/firebaseinstance.dart';
 import 'package:toms_palace/util/imagedirectory.dart';
@@ -65,7 +66,7 @@ class _SignUpState extends State<SignUp> {
           Navigator.push(
             context,
             MaterialPageRoute(
-              builder: (context) => const ContactUsPage(),
+              builder: (context) => const Homescreen(),
             ),
           );
         });

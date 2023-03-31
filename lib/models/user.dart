@@ -1,3 +1,4 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:toms_palace/util/firebaseinstance.dart';
 
 class AppUser {
@@ -10,6 +11,7 @@ class AppUser {
   String? userPassword;
   String? address;
   List<CartItems>? cart;
+  AppUser();
 
   AppUser.inituser(this.name, this.email, this.gender, this.address,
       this.phoneNumber, this.userPassword, this.uid, this.cart, this.city);
@@ -27,9 +29,9 @@ class AppUser {
     };
   }
 
-  Future getuserData() {
+  Stream<DocumentSnapshot<Map<String, dynamic>>> getuserData() {
     String userId = authInstance.currentUser!.uid;
-    return db.collection('Users').doc(userId).get();
+    return db.collection('Users').doc(userId).snapshots();
   }
 }
 

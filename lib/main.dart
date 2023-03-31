@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:toms_palace/ui/contact_us.dart';
+import 'package:toms_palace/ui/homepage.dart';
 import 'package:toms_palace/ui/welcomescreen.dart';
 import 'package:toms_palace/util/firebaseinstance.dart';
 import 'package:toms_palace/util/themedata.dart';
@@ -66,7 +67,7 @@ class _AuthConfirmState extends State<AuthConfirm> {
           if (snapshot.data == null) {
             return const WelcomeScreen();
           } else {
-            return const ContactUsPage();
+            return const Homescreen();
           }
         });
   }
