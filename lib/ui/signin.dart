@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:toms_palace/global_widgets.dart/erroralert.dart';
 import 'package:toms_palace/ui/contact_us.dart';
+import 'package:toms_palace/ui/homepage.dart';
 import 'package:toms_palace/ui/signup.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import '../util/firebaseinstance.dart';
@@ -37,7 +38,7 @@ class _SignInState extends State<SignIn> {
   pushpage() {
     Navigator.pushReplacement(
       context,
-      MaterialPageRoute(builder: (context) => const ContactUsPage()),
+      MaterialPageRoute(builder: (context) => const Homescreen()),
     );
   }
 
