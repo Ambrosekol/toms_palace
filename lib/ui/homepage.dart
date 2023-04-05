@@ -25,6 +25,7 @@ class _HomescreenState extends State<Homescreen> {
   @override
   void initState() {
     userdata = appUser.getuserData();
+
     //GET MENU ITEMS
     db.collection('Food Menu').get().then((value) {
       for (int i = 0; i < value.docs.length; i++) {
