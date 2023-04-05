@@ -51,4 +51,4 @@ google_fonts: ^2.1.0
 
 
 # Contributing
-As this is a private repository, contributions are not accepted at this time.
+As this is a public repository, contributions are not accepted at this time.
