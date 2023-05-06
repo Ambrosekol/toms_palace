@@ -44,7 +44,7 @@ class _HomescreenState extends State<Homescreen> {
       stream: userdata,
       builder: (context, snapshot) {
         if (snapshot.hasData && foodmenu.isNotEmpty) {
-          // print(foodmenu[2].name);
+         
           return Scaffold(
             appBar: CustomizedAppBar(centerTitle: true),
             drawer: const CustomizedDrawer(),
